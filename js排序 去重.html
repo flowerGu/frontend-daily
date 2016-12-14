@@ -1,5 +1,3 @@
-#È¥ÖØ£¬Ëæ»ú£¬ÅÅÐò
-```html
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,12 +7,12 @@
             var a=[5,4,2,6,19,3,1,20,18,45,36,60,2,9,8,38,17,13,19,12,16,23,45,31,31,45,20,1,7,9]
             var newa=[];
             var suba=[];
-            for (var i=0,length=a.length;i<length;i++){//È¥ÖØ
+            for (var i=0,length=a.length;i<length;i++){//åŽ»é‡
                 if(newa.indexOf(a[i])===-1){
                     newa.push(a[i]);
                 }
             }
-            for(var i=0;i<newa.length;i++){//Ëæ»ú7¸ö
+            for(var i=0;i<newa.length;i++){//éšæœº7ä¸ª
                 var cc=Math.floor(Math.random()*(newa.length));
                 if(suba.indexOf(newa[cc])===-1){
                     suba.push(newa[cc])
@@ -24,7 +22,7 @@
                 }
             }
             var k;
-            for(var i=0,length=suba.length;i<length;i++){//ÅÅÐò
+            for(var i=0,length=suba.length;i<length;i++){//æŽ’åº
                 for(var j=0;j<(suba.length-i-1);j++){
                     if(suba[j]<suba[j+1]){
                         k=suba[j+1];
@@ -39,4 +37,3 @@
     <body>
     </body>
 </html>
-```
