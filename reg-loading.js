@@ -23,7 +23,10 @@ var tools = {
         },
         name: function (val) {//中文名
             return /^[\u4e00-\u9fa5]{2,16}$|(^[\u4e00-\u9fa5]{2,16}·[\u4e00-\u9fa5]{2,16})$/.test(val);  
-        }
+        },
+		separater:function(input){
+			return input.replace(/[^0-9]+/g,'').split('').reverse().join('').replace(/(\d{3})/g,"$1,").replace(/\,$/,'').split('').reverse().join('')
+		}
     },
     trimAll: function (val) {//移除全部空格
         return val.replace(/\s+/g, "");
