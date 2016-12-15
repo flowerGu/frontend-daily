@@ -1,0 +1,321 @@
+/*20150917*/
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Microsoft Yahei","arial";
+}
+html{
+    tap-highlight-color: rgba(255,255,255,0);
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+}
+ul,li,p,h5,h3{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+img{
+    width: 100%;
+    display: block;
+    border: 0;
+}
+button{
+    border: none;
+}
+.egg_mcon{
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.egg_mcon .ruleBtn{
+    position: relative;
+    width: 100%;
+}
+.egg_mcon .ruleBtn .rBtn{
+    display: block;
+    position: absolute;
+    width: 16%;
+    top: 3%;
+    right: 3%;
+}
+.egg_mcon .eggBox{
+    width: 100%;
+    position: relative;
+    background-color: #ca2d2d;
+    height: 540px;
+    overflow: hidden;
+}
+.eggBox .chanceBox{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 40px;
+    line-height: 40px;
+}
+.eggBox .chanceBox p{
+    display: table;
+    background-color: #8b0a0e;
+    color: #f8eab4;
+    font-size: 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+.eggBox .chanceBox p span{
+    color: #feca04;
+    margin: 0 5px;
+    font-family: arial;
+}
+.eggBox .egg{
+    position: absolute;
+    top: 24%;
+    left: 50%;
+    width: 280px;
+    height: 324px;
+    margin-left: -140px;
+    background: url(../images/eggs1.png) no-repeat;
+    background-size: 1680px 324px;
+}
+.eggBox .brokenEgg{
+    position: absolute;
+    top: 24%;
+    left: 50%;
+    width: 280px;
+    height: 324px;
+    margin-left: -140px;
+    background: url(../images/eggs2.png) no-repeat;
+    background-size: 280px 324px;
+    z-index: 10;
+}
+.eggBox .light{
+    position: absolute;
+    width: 110%;
+    left: -5%;
+    top: 18%;
+}
+.eggBox .starBox{
+    position: absolute;
+    width: 94%;
+    left: 3%;
+    top: 24%;
+    display: none;
+    z-index: 15;
+}
+.eggBox .hammer{
+    position: absolute;
+    top: 13%;
+    right: 1%;
+    width: 48%;
+    /*display: none;*/
+}
+.egg_mcon .yellowBox{
+    padding-bottom: 30px;
+    background-color: #feca04;
+}
+.egg_mcon .eggBtn{
+    width: 100%;
+    background: #fe9d04;
+    padding: 10px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+}
+.egg_mcon .eggBtn a{
+    width: 100%;
+    height: 43px;
+    display: inline-block;
+    border: 1px solid #d83e03;
+    border-radius: 5px;
+    color: #FFF;
+    font-size: 18px;
+    line-height: 43px;
+    text-align: center;
+    background: -webkit-linear-gradient(#fb6228, #f34f10, #f64301);
+    text-decoration: none;
+}
+.eggBox .eggs_b{
+    position: absolute;
+    width: 80%;
+    top: 410px;
+    right: 0;
+    z-index: 10;
+}
+.mask{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 1000;
+    height: 100%;
+    /*display: none;*/
+}
+.ruleLayer{
+    width: 94%;
+    position: fixed;
+    left: 3%;
+    top: 50%;
+    z-index: 1001;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 15px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    margin-top: -167px;
+}
+.ruleLayer h5{
+    font-size: 18px;
+    color: #333333;
+    position: relative;
+}
+.ruleLayer h5 i.close{
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    background: url(../images/close_icon.png) no-repeat;
+    background-size: contain;
+}
+.ruleLayer .ruleText{
+    font-size: 16px;
+    color: #6f6f6f;
+    line-height: 24px;
+    height: 270px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+.ruleLayer .ruleText p{
+    margin-bottom: 10px;
+}
+.prizeLayer{
+    width: 94%;
+    position: fixed;
+    left: 3%;
+    top: 50%;
+    z-index: 1001;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    height: 274px;
+    margin-top: -137px;
+    text-align: center;
+}
+.prizeLayer .layerTop{
+    height: 36px;
+    background-color: #f0f0f0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    position: relative;
+}
+.prizeLayer .layerTop .close_p{
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: url(../images/close_p.png) no-repeat;
+    background-size: contain;
+}
+.prizeLayer .layerCon_1 h3{
+    color: #ff5b02;
+    font-size: 20px;
+    padding: 10px 0 8px 0;
+}
+.prizeLayer .layerCon_1 .moneyBg{
+    width: 150px;
+    margin: 0 auto;
+    height: 60px;
+    background: url(../images/redbg.png) no-repeat;
+    background-size: 150px 60px;
+    color: #ffffff;
+}
+.layerCon_1 .moneyBg p.tyj{
+    padding-top: 9px;
+    font-size: 18px;
+}
+.layerCon_1 .moneyBg p.sy{
+    font-size: 13px;
+    margin-top: 3px;
+}
+.prizeLayer .prizeText{
+    display: table;
+    margin: 0 auto;
+    color: #919191;
+    font-size: 14px;
+    padding-top: 15px;
+    line-height: 22px;
+    text-align: left;
+}
+.prizeLayer .prizeText span{
+    color: #000000;
+}
+.prizeLayer .prizeText a.shareBtn{
+    display: table;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #ff5b02;
+    border-radius: 5px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 40px;
+    margin: 15px auto 0 auto;
+    text-decoration: none;
+    font-weight: bold;
+}
+.prizeLayer .layerCon_2{
+    padding-top: 70px;
+    color: #919191;
+    font-size: 18px;
+}
+.prizeLayer .layerCon_2 h3{
+    font-size: 21px;
+    color: #ff5b02;
+    margin-bottom: 20px;
+}
+.prizeLayer .layerCon_2 a.alink{
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: underline;
+    color: #ff5b02;
+}
+.prizeLayer .layerCon_3{
+    padding-top: 30px;
+}
+.prizeLayer .layerCon_3 h3{
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #ff5b02;
+}
+.prizeLayer .layerCon_3 a.shareBtn{
+    margin-top: 25px;
+}
+.prizeLayer .layerCon_4 h3{
+    color: #ff5b02;
+    font-size: 20px;
+    padding-top: 20px;
+}
+.prizeLayer .layerCon_4 .timeTips{
+    color: #919191;
+    font-size: 12px;
+    margin: 5px 0 10px 0;
+}
+
+
+#goTopBtn {
+    position: fixed;
+    bottom: 70px;
+    cursor: pointer;
+    right: 10px;
+    z-index: 1000;
+}
+#goTopBtn img {
+    width: 35px;
+}

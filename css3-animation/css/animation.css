@@ -1,0 +1,73 @@
+/*20150919*/
+
+@keyframes shake{
+    0% {background-position:0 0;}
+    100% {background-position:-1680px 0;}
+}
+
+@-webkit-keyframes shake{
+    0% {background-position:0 0;}
+    100% {background-position:-1680px 0;}
+}
+.shake{
+    animation:shake 1.2s steps(6) infinite;
+    -webkit-animation:shake 1.2s steps(6) infinite;
+}
+
+
+@keyframes light{
+    0%{
+        transform: scale3d(0.1,0.1,0.1);
+        -webkit-transform: scale3d(0.1,0.1,0.1);
+        opacity: 1;
+    }
+    100%{
+        transform: scale3d(1,1,1);
+        -webkit-transform: scale3d(1,1,1);
+        opacity: 1;
+    }
+}
+@-webkit-keyframes light{
+    0%{
+        transform: scale3d(0.1,0.1,0.1);
+        -webkit-transform: scale3d(0.1,0.1,0.1);
+        opacity: 1;
+    }
+    100%{
+        transform: scale3d(1,1,1);
+        -webkit-transform: scale3d(1,1,1);
+        opacity: 1;
+    }
+}
+.flash{
+    animation: light 0.4s both;
+    -webkit-animation: light 0.4s both;
+}
+
+
+@keyframes stars{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@-webkit-keyframes stars{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+.star_f{
+    animation: stars 1s infinite both;
+    -webkit-animation: stars 1s infinite both;
+}

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>砸金蛋</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/animation.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-1.8.3.js"></script>
+</head>
+<body>
+<img src="images/eggs1.png" style="display: none">
+<audio id="audio">
+    <source src="images/egg.mp3">
+</audio>
+<div class="egg_mcon">
+    <img src="images/pic1.png">
+    <img src="images/pic2.png">
+    <div class="ruleBtn">
+        <img src="images/pic3.png">
+        <a href="javascript:void(0)" class="rBtn"><img src="images/pic4.png"></a>
+    </div>
+    <div class="eggBox">
+        <img src="images/pic5.png">
+        <a id="a1" name="aa"></a>
+        <div class="chanceBox">
+            <p>您有<span>3</span>次砸金蛋机会</p>
+        </div>
+        <div class=""></div>
+        <div class="light" style="display: none"><img src="images/light.png"></div>
+        <div id="star_1" class="starBox"><img src="images/star1.png"></div>
+        <div id="star_2"  class="starBox"><img src="images/star2.png"></div>
+        <div id="egg_1" class="egg shake"></div>
+        <div id="egg_2" class="brokenEgg" style="display: none"></div>
+        <div class="eggs_b" style="display: none"><img src="images/egg_pic.png"></div>
+        <div class="hammer"><img src="images/hammer.png"></div>
+    </div>
+    <div class="yellowBox">
+        <img src="images/pic6.png">
+        <img src="images/pic7.png">
+        <img src="images/pic8.png">
+        <img src="images/pic9.png">
+        <img src="images/pic10.png">
+        <img src="images/pic11.png">
+    </div>
+    <div class="eggBtn">
+        <a href="#">立即理财</a>
+    </div>
+
+<!--弹出层-->
+    <div class="mask" style="display: none"></div>
+    <!--活动规则弹出层 begin-->
+    <div class="ruleLayer" style="display: none">
+        <h5>活动规则<i class="close"></i></h5>
+        <div class="ruleText">
+            <p>1. 此活动仅限于2015年10月1日起实名认证用户；</p>
+            <p>2. 活动期间，每名新用户投资任意金额可获得1次“砸金蛋“机会； 单笔投资无忧理财或优选标满500元至1000元之间，可获得1次“砸金蛋”机会；满1000元及以上可再获得一次“砸金蛋”机会；</p>
+            <p>3. 活动期间，每名用户最多可获得3次“砸金蛋“机会；</p>
+            <p>4. 所获体验金每天计算收益，所获得收益将于您获得后3个工作日内充入您的民信贷账户中，请您及时查看，如有问题请您及时与客服联系,客服电话“400-686-2877”；</p>
+            <p>5. 体验金不可提现，体验金所获收益可继续用于民信贷投资或提现。</p>
+        </div>
+    </div>
+    <!--end-->
+
+    <!--砸蛋弹出层 begin-->
+    <div class="prizeLayer" style="display: none">
+        <div class="layerTop"><i class="close_p"></i></div>
+
+        <!--砸中体验金 begin-->
+        <div class="layerCon_1" style="display: none">
+            <h3>恭喜您抽中体验金</h3>
+            <div class="moneyBg">
+                <p class="tyj">￥1,000,000</p>
+                <p class="sy">可获得收益<span>410.96</span>元</p>
+            </div>
+            <div class="prizeText">
+                <p><span>分享后</span>,好友实名并投资,您有一次免费抽</p>
+                <p>iPhone 6大奖机会及提成奖励。</p>
+                <a href="#" class="shareBtn">立即分享</a>
+            </div>
+        </div>
+        <!--end-->
+
+        <!--没有抽奖机会了 begin-->
+        <div class="layerCon_2" style="display: none">
+            <h3>对不起，抽奖机会没有了!</h3>
+            <p><a href="#" class="alink">立即投资</a> 赚取抽奖机会</p>
+        </div>
+        <!--end-->
+
+        <!--机会已用完 begin-->
+        <div class="layerCon_3" style="display: none">
+            <h3>您的机会已用完</h3>
+            <div class="prizeText">
+                <p><span>您现在可以：</span></p>
+                <p><span>分享后</span>,好友实名并投资,您有一次免费抽</p>
+                <p>iPhone 6大奖机会及提成奖励。</p>
+                <a href="#" class="shareBtn">立即分享</a>
+            </div>
+        </div>
+        <!--end-->
+
+        <!--活动未开始/已结束 begin-->
+        <div class="layerCon_4" style="display: none">
+
+            <!--活动未开始-->
+            <h3>本活动未开始</h3>
+            <!--end-->
+
+            <!--活动已结束-->
+            <h3 style="display: none">本活动已结束</h3>
+            <!--end-->
+
+            <div class="timeTips">(活动时间2015.10.1 00:00:00-2015.10.31 23:59:59)</div>
+            <div class="prizeText">
+                <p><span>您现在可以：</span></p>
+                <p><span>分享后</span>,好友实名并投资,您有一次免费抽</p>
+                <p>iPhone 6大奖机会及提成奖励。</p>
+                <a href="#" class="shareBtn">立即分享</a>
+            </div>
+        </div>
+        <!--end-->
+
+    </div>
+    <!--end-->
+<!--end-->
+</div>
+<div id="goTopBtn"><img src="images/toTop.png"></div>
+
+<script>
+    $(function(){
+        //锤子砸蛋
+        $('#egg_1').click(function(){
+            $('.hammer>img').attr('src','images/hammer2.png');
+            document.getElementById('audio').play();
+            setTimeout(function(){
+                //$('.hammer').hide();
+                $('#egg_1').hide();
+                $('.light').show().addClass('flash');
+                $('#egg_2').show();
+                $('.eggs_b').show();
+                stars();
+                layerShow();
+            },200);
+        });
+
+        //星星闪烁
+        function stars(){
+            $('#star_1').show().addClass('star_f');
+            setTimeout(function(){
+                $('#star_2').show().addClass('star_f');
+            },400);
+        }
+
+        //活动规则弹出层
+        $('.rBtn').click(function(){
+            $('.mask').fadeIn('fast');
+            $('.ruleLayer').fadeIn('fast');
+        });
+
+        $('.mask').click(function(){
+            layerHide();
+        });
+
+        $('i.close').click(function(){
+            layerHide();
+        });
+
+        //砸蛋弹出层
+        $('i.close_p').click(function(){
+            layerHide();
+        });
+
+        function layerShow(){
+            setTimeout(function(){
+                $('.mask').fadeIn('fast');
+                $('.prizeLayer').fadeIn('fast');
+                $('.layerCon_1').show();
+            },800);
+        }
+
+        function layerHide(){
+            $('.mask').fadeOut('fast');
+            $('.ruleLayer').fadeOut('fast');
+            $('.prizeLayer').fadeOut('fast');
+        }
+
+        //回到顶部
+        goTopEx();
+        function goTopEx() {
+            var obj = document.getElementById("goTopBtn");
+            function getScrollTop() {
+                return document.documentElement.scrollTop + document.body.scrollTop;
+            }
+            function setScrollTop(value) {
+                if (document.documentElement.scrollTop) {
+                    document.documentElement.scrollTop = value;
+                } else {
+                    document.body.scrollTop = value;
+                }
+            }
+            window.onscroll = function() {
+                getScrollTop() > 0 ? obj.style.display = "": obj.style.display = "none";
+            };
+
+            obj.onclick = function() {
+                var goTop = setInterval(scrollMove, 10);
+                function scrollMove() {
+                    setScrollTop(getScrollTop() / 1.1);
+                    if (getScrollTop() < 1) clearInterval(goTop);
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
