@@ -22,7 +22,7 @@ var tools = {
             return /^\d*(\.\d{0,2})$/.test(val);
         },
         name: function (val) {//test ->chinese name
-            return /^[\u4e00-\u9fa5]{2,16}$|(^[\u4e00-\u9fa5]{2,16}路[\u4e00-\u9fa5]{2,16})$/.test(val);  
+            return /^[\u4e00-\u9fa5]{2,16}$|(^[\u4e00-\u9fa5]{2,16}脗路[\u4e00-\u9fa5]{2,16})$/.test(val);  
         },
 	separater:function(input){//modify separator
 		return input.replace(/[^0-9]+/g,'').split('').reverse().join('').replace(/(\d{3})/g,"$1,").replace(/\,$/,'').split('').reverse().join('')
@@ -72,11 +72,11 @@ $(document).ajaxComplete(function () {
     }
 }) 
 </script>
-## /^([0-4]?[0-9]|50)$/.test(66)     --->false    0-50
-##new Date(parseInt(20000000000) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');
-##var arr='123456778'
-##arr.match(/2/g).length    =>count str's nums
-var addSpace = function(vals,index){//格式化手机号
+//## /^([0-4]?[0-9]|50)$/.test(66)     --->false    0-50
+//##new Date(parseInt(20000000000) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');
+//##var arr='123456778'
+//##arr.match(/2/g).length    =>count str's nums
+var addSpace = function(vals,index){
     vals=vals.split('')
     vals.splice(index,0,' ')
     return vals.join('');
