@@ -76,7 +76,7 @@ $(document).ajaxComplete(function () {
 //##new Date(parseInt(20000000000) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');
 //##var arr='123456778'
 //##arr.match(/2/g).length    =>count str's nums
-var addSpace = function(vals,index){
+var addSpace = function(vals,index){//format mobile
     vals=vals.split('')
     vals.splice(index,0,' ')
     return vals.join('');
