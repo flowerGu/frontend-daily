@@ -3,32 +3,32 @@
 var tools = {
     _loading: null,
     validate: {
-        tel: function (val) {//ÑéÖ¤ÊÖ»úºÅ
+        tel: function (val) {//éªŒè¯æ‰‹æœºå·
             return /\d{3}-\d{8}|\d{4}-\{7,8}$/.test(val);
         },
-        bankCard: function (val) {//ÒøÐÐ¿¨
+        bankCard: function (val) {//é“¶è¡Œå¡
             return /^\d{16,19}$/.test(val);
         },
-        mobile: function (val) {//´ø·Ö»úµÄÊÖ»úºÅ
+        mobile: function (val) {//å¸¦åˆ†æœºçš„æ‰‹æœºå·
             return /^(0|86|17951)?(13[0-9]|15[0-9]|17[678]|18[0-9]|14[57])[0-9]{8}$/.test(val);
         },
-        IDCard: function (val) {//Éí·ÝÖ¤
+        IDCard: function (val) {//èº«ä»½è¯
             return  /(^\d{18}$|^\d{17}(\d|X|x))$/.test(val) ;
         },
-        email: function (val) {//µç×ÓÓÊÏä
+        email: function (val) {//ç”µå­é‚®ç®±
             return /^[a-z0-9][a-z0-9._-]*@[a-z0-9_-]+(\.[a-z0-9_-]+)+$/i.test(val);
         },
-        money: function (val) {//½ðÇ®
+        money: function (val) {//é‡‘é’±
             return /^\d*(\.\d{0,2})$/.test(val);
         },
-        name: function (val) {//ÖÐÎÄÃû
-            return /^[\u4e00-\u9fa5]{2,16}$|(^[\u4e00-\u9fa5]{2,16}¡¤[\u4e00-\u9fa5]{2,16})$/.test(val);  
+        name: function (val) {//ä¸­æ–‡å
+            return /^[\u4e00-\u9fa5]{2,16}$|(^[\u4e00-\u9fa5]{2,16}Â·[\u4e00-\u9fa5]{2,16})$/.test(val);  
         },
-		separater:function(input){
-			return input.replace(/[^0-9]+/g,'').split('').reverse().join('').replace(/(\d{3})/g,"$1,").replace(/\,$/,'').split('').reverse().join('')
-		}
+	separater:function(input){//åƒä½åˆ†éš”ç¬¦	
+		return input.replace(/[^0-9]+/g,'').split('').reverse().join('').replace(/(\d{3})/g,"$1,").replace(/\,$/,'').split('').reverse().join('')
+	}
     },
-    trimAll: function (val) {//ÒÆ³ýÈ«²¿¿Õ¸ñ
+    trimAll: function (val) {//ç§»é™¤å…¨éƒ¨ç©ºæ ¼
         return val.replace(/\s+/g, "");
     },
     formatStr: function (str, separate, separateChar) {
@@ -37,7 +37,7 @@ var tools = {
         var reg = new RegExp('(\\d)(?=(\\d{' + separate + '})+(?!\\d))', 'g');
         return str.replace(/s+/g,'').replace(reg, '$1' + separateChar);
     },
-    loading: function (action) {//loading¶¯»­
+    loading: function (action) {//loadingåŠ¨ç”»
         tools._loading = $('.loading');
         switch (action) {
             case 'open':
@@ -75,4 +75,4 @@ $(document).ajaxComplete(function () {
 ## /^([0-4]?[0-9]|50)$/.test(66)     --->false    0-50
 ##new Date(parseInt(20000000000) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');
 ##var arr='123456778'
-##arr.match(/2/g).length    =>Í³¼Æ×Ö·û2µÄ¸öÊý
+##arr.match(/2/g).length    =>ç»Ÿè®¡å­—ç¬¦2çš„ä¸ªæ•°
