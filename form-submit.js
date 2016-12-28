@@ -10,7 +10,8 @@ function ajax(){
 }
 var isTrue = false;
 $('#button').click(function(){
-     if(isTrue){///////////////另一个方法，（$(this).attr('')） || $(this).addClass('')
+	///////////////另一个方法，（$(this).attr('')） || $(this).addClass('')
+     if(isTrue){
           return false;
      }
      isTrue = true;
