@@ -15,13 +15,13 @@
 1> Object.prototype.toString.call(a)==>[Object Array]; 
 	kind_a==kind_a.split(' ')[1]; 
 	length=kind_a.length-1; 
-	var kind=kind_a.substr(0,length);¡ª->Array 
+	var kind=kind_a.substr(0,length);â€”->Array 
 2> typeof(a)==>Object; 
 3> a.constructor=Array; 
 4> a instanceof Array 
-5>Î±Êı×é {0:'s','1':'t',length:2} 
+5>ä¼ªæ•°ç»„ {0:'s','1':'t',length:2} 
 hasownproperty 
-arguments ¶ÔÏó²¢²»ÊÇÒ»¸öÕæÕıµÄArray¡£ËüÀàËÆÓÚÊı×é£¬µ«Ã»ÓĞÊı×éËùÌØÓĞµÄÊôĞÔºÍ·½·¨£¬³ıÁË length¡£ÀıÈç£¬ËüÃ»ÓĞ pop ·½·¨¡£²»¹ı¿ÉÒÔ½«Æä×ª»»³ÉÊı×é£º 
-var args = Array.prototype.slice.call(arguments); [].slice.call(arguments);
+arguments å¯¹è±¡å¹¶ä¸æ˜¯ä¸€ä¸ªçœŸæ­£çš„Arrayã€‚å®ƒç±»ä¼¼äºæ•°ç»„ï¼Œä½†æ²¡æœ‰æ•°ç»„æ‰€ç‰¹æœ‰çš„å±æ€§å’Œæ–¹æ³•ï¼Œé™¤äº† lengthã€‚ä¾‹å¦‚ï¼Œå®ƒæ²¡æœ‰ pop æ–¹æ³•ã€‚ä¸è¿‡å¯ä»¥å°†å…¶è½¬æ¢æˆæ•°ç»„ï¼š 
+var args = Array.prototype.slice.call(arguments); [].slice.call(arguments);Array.from(arguments)//es6
 	</body>
 </html>
