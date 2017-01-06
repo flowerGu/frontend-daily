@@ -1,22 +1,64 @@
 display:block;
 width:200px;
-text-overflow:ellipsis;//Ê¡ÂÔºÅ | clipÄÚÈİ²ÃÇĞ
+text-overflow:ellipsis;//çœç•¥å· | clipå†…å®¹è£åˆ‡
 overflow:hidden;
 white-space:nowrap;
 
 
-×Ô¶¯»»ĞĞ: word-wrap:break-word; //ÊÇ·ñÔÊĞíµ¥´Ê½øĞĞ¶Ï¾ä  |  normal
-                 word-break:break-all;  //ÔÊĞíÔÚµ¥´ÊÄÚ»»ĞĞ | normal | keep-all  Ö»ÄÜÔÚ°ë½Ç¿Õ¸ñ»òÁ¬×Ö·û´¦»»ĞĞ
+è‡ªåŠ¨æ¢è¡Œ: word-wrap:break-word; //æ˜¯å¦å…è®¸å•è¯è¿›è¡Œæ–­å¥  |  normal
+                 word-break:break-all;  //å…è®¸åœ¨å•è¯å†…æ¢è¡Œ | normal | keep-all  åªèƒ½åœ¨åŠè§’ç©ºæ ¼æˆ–è¿å­—ç¬¦å¤„æ¢è¡Œ
+
+::-webkit-scrollbar { /* 1 */
+	/*æ»šåŠ¨æ¡æ•´ä½“éƒ¨åˆ†ï¼Œå…¶ä¸­çš„å±æ€§æœ‰width,height,background,borderï¼ˆå°±å’Œä¸€ä¸ªå—çº§å…ƒç´ ä¸€æ ·ï¼‰ç­‰*/
+	background-color: rgba(255, 255, 255, 0.5);
+	width: 10px;//çºµå‘æ»šåŠ¨æ¡
+	height: 10px;//æ¨ªå‘æ»šåŠ¨æ¡
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-button { /* 2 */
+	/*æ»šåŠ¨æ¡ä¸¤ç«¯çš„æŒ‰é’®ã€‚å¯ä»¥ç”¨display:noneè®©å…¶ä¸æ˜¾ç¤ºï¼Œä¹Ÿå¯ä»¥æ·»åŠ èƒŒæ™¯å›¾ç‰‡ï¼Œé¢œè‰²æ”¹å˜æ˜¾ç¤ºæ•ˆæœã€‚*/
+	display: none;
+}
+
+::-webkit-scrollbar-track { /* 3 */
+	/*å¤–å±‚è½¨é“ã€‚å¯ä»¥ç”¨display:noneè®©å…¶ä¸æ˜¾ç¤ºï¼Œä¹Ÿå¯ä»¥æ·»åŠ èƒŒæ™¯å›¾ç‰‡ï¼Œé¢œè‰²æ”¹å˜æ˜¾ç¤ºæ•ˆæœã€‚*/
+	//background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(239, 239, 239, 1);
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-track-piece { /* 4 */
+	/*å†…å±‚è½¨é“ï¼Œæ»šåŠ¨æ¡ä¸­é—´éƒ¨åˆ†ï¼ˆé™¤å»ï¼‰ã€‚*/
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb { /* 5 */
+	/*æ»šåŠ¨æ¡é‡Œé¢å¯ä»¥æ‹–åŠ¨çš„é‚£éƒ¨åˆ†*/
+	background-color: rgba(0, 0, 0, 0.7);
+	//background-color: rgba(239, 239, 239, 1);
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-corner { /* 6 */
+	/*è¾¹è§’*/
+}
+
+::-webkit-resizer { /* 7 */
+	/*å®šä¹‰å³ä¸‹è§’æ‹–åŠ¨å—çš„æ ·å¼*/
+}
 
 
-Flex²¼¾Ö:
+
+Flexå¸ƒå±€:
 /* http://www.jianshu.com/p/8c1267009fe7 */
 .box{
     display:flex;
-    align-items:(´¹Ö±·½Ïò)  center    |    flex-end µ×²¿¶ÔÆë
-    justify-content:(Ë®Æ½·½Ïò)center |    flex-end ÓÒ¶ÔÆë  | space-between  Á½¶Ë¶ÔÆë  |  flex-start   ×ó¶ÔÆë  |  space-around Ã¿¸öÏîÄ¿Á½²àµÄ¼ä¸ôÏàµÈ
-  flex-direction:(ÊôĞÔ¾ö¶¨Ö÷ÖáµÄ·½Ïò)  row ´Ó×óµ½ÓÒ  | row-reverse ´ÓÓÒµ½×ó | column  ´ÓÉÏµ½ÏÂ   |  column-reverse  ´ÓÏÂµ½ÉÏ
-  align-self: £¨µ¥¸öÏîÄ¿ÓëÆäËûÏîÄ¿ÓĞ²»Ò»ÑùµÄµÄ¶ÔÆë·½Ê½£©
-auto ¼Ì³Ğ¸¸ÔªËØµÄalign-itemsÊôĞÔ   |   flex-start   |   flex-end  |   center  |    baseline   |    stretch
-flex-wrap:(Ä¬ÈÏÇé¿öÏÂÏîÄ¿¶¼ÅÅÔÚÒ»ÌõÏßÉÏ) Ä¬ÈÏ²»»»ĞĞ  |   wrap »»ĞĞ£¬µÚÒ»ĞĞÔÚÉÏ·½   |    wrap-reverse »»ĞĞ,µÚÒ»ĞĞÔÚÏÂ·½
-align-content:(¶¨Òå¶à¸ùÖáÏßµÄ¶ÔÆë·½Ê½,Èç¹ûÏîÄ¿Ö»ÓĞÒ»¸ùÖáÏß,ÄÇÕâ¸öÊôĞÔ¾Í²»Æğ×÷ÓÃ/¶àĞĞÊ±£¬ÄÚÈİ¾àÏßÖáµÄ¶ÔÆë·½Ê½)
+    align-items:(å‚ç›´æ–¹å‘)  center    |    flex-end åº•éƒ¨å¯¹é½
+    justify-content:(æ°´å¹³æ–¹å‘)center |    flex-end å³å¯¹é½  | space-between  ä¸¤ç«¯å¯¹é½  |  flex-start   å·¦å¯¹é½  |  space-around æ¯ä¸ªé¡¹ç›®ä¸¤ä¾§çš„é—´éš”ç›¸ç­‰
+  flex-direction:(å±æ€§å†³å®šä¸»è½´çš„æ–¹å‘)  row ä»å·¦åˆ°å³  | row-reverse ä»å³åˆ°å·¦ | column  ä»ä¸Šåˆ°ä¸‹   |  column-reverse  ä»ä¸‹åˆ°ä¸Š
+  align-self: ï¼ˆå•ä¸ªé¡¹ç›®ä¸å…¶ä»–é¡¹ç›®æœ‰ä¸ä¸€æ ·çš„çš„å¯¹é½æ–¹å¼ï¼‰
+auto ç»§æ‰¿çˆ¶å…ƒç´ çš„align-itemså±æ€§   |   flex-start   |   flex-end  |   center  |    baseline   |    stretch
+flex-wrap:(é»˜è®¤æƒ…å†µä¸‹é¡¹ç›®éƒ½æ’åœ¨ä¸€æ¡çº¿ä¸Š) é»˜è®¤ä¸æ¢è¡Œ  |   wrap æ¢è¡Œï¼Œç¬¬ä¸€è¡Œåœ¨ä¸Šæ–¹   |    wrap-reverse æ¢è¡Œ,ç¬¬ä¸€è¡Œåœ¨ä¸‹æ–¹
+align-content:(å®šä¹‰å¤šæ ¹è½´çº¿çš„å¯¹é½æ–¹å¼,å¦‚æœé¡¹ç›®åªæœ‰ä¸€æ ¹è½´çº¿,é‚£è¿™ä¸ªå±æ€§å°±ä¸èµ·ä½œç”¨/å¤šè¡Œæ—¶ï¼Œå†…å®¹è·çº¿è½´çš„å¯¹é½æ–¹å¼)
