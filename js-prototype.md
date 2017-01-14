@@ -60,8 +60,13 @@ function foo() {
 Object.prototype.x = 10; 
 foo(); //20
 
-
-
+/*函数也是一个对象*/
+function a(){
+ a.b()
+}
+a.b = function (){
+	console.log(1)
+}
 var foo = {
     hasOwnProperty: function() {
         return false;
