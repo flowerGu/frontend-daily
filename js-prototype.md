@@ -62,11 +62,15 @@ foo(); //20
 
 /*函数也是一个对象*/
 function a(){
- a.b()
+
 }
 a.b = function (){
 	console.log(1)
 }
+ a.b()
+ 
+ 
+ 
 var foo = {
     hasOwnProperty: function() {
         return false;
