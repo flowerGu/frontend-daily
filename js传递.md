@@ -28,3 +28,13 @@ o.x = 1;
 obj.x; // 1, 被修改
 o = true;
 obj.x; // 1, 不会因o = true改变    对象并非按引用传递，通过o = true修改了o的值，不会影响obj
+
+
+
+js 变量提升
+var a =33;
+function test(){
+ console.log(a);//在此作用域中，若后面代码声明了变量，则会把声明提升到作用域顶部，var a;   a并非是全局变量，故此输出为undefined
+ var a=1;
+ 
+}
