@@ -59,7 +59,14 @@
     a.bindClick();
     a.bindDel(5)
     a.append(2,'v2ex.com');
-    +new Date() == new Date().getTime() == Date.parse(new Date())
+    +new Date() == new Date().getTime() == Date.parse(new Date());
+	
+	jquery:
+	var ele = e || window.event;
+	var target = ele.target || ele.srcElement;
+	$(target).attr('id');//jq兼容性
+	$(document).on('click',">a",function(){})
+	
 </script>
 </body>
 </html>
