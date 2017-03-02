@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-1.9.0.min.js"></script> 
+		<style>
+			body{
+				width:100%;
+				height:100%;
+			}
+			.dialogWrap{width:100%;height:100%;}
+			.dialogWrap .bg{
+				width:100%;
+				height:100%;
+				position:fixed;
+				left:0;
+				top:0;
+				background-color:rgba(0, 0, 0, .4)
+			}
+			.dialogContainer{
+				width:400px;
+				position:fixed;
+				left:50%;
+				top:50%;
+				transform: translate(-50%,-50%);
+				background-color:#fff;
+				border-radius:10px;
+				font-size:16px;
+			}
+			.dialog-title{
+				padding:15px 4%;
+			}
+			.dialog-content{
+				width:100%;
+				color：#646464;
+				/*margin:20px;*/
+				text-align:center;
+			}
+			.dialog-btn{
+				text-align:center;
+				width:100%;
+				margin:10px auto;
+			}
+			.dialog-btn input{
+				color:#fff;
+				display:inline-block;
+				width:80px;
+				height:40px;
+				line-height:40px;
+				border-radius:5px;
+				outline:none;
+				border:none;
+				background-color:#fa4949;
+			}
+			.dialogContainer a{
+				position:absolute;
+				right:0;
+				top:0;
+				font-size:18px;
+				color:#000222;
+			}
+		</style>
+	</head>
+	<body>123
+	<button id='clickme'>点我</button>
+		<script>
+			function dialog(opts){
+				var str = '<div class="dialogWrap">\
+								<div class="bg"></div>\
+								<div class="dialogContainer">\
+									<a href="#" class="close">X</a>\
+									<div class="dialog-title"></div>\
+									<div class="dialog-content"></div>\
+									<div class="dialog-btn">\
+									</div>\
+								</div>\
+							</div>'
+				$html = $(str);
+				$(document.body).append($html);
+				if(opts.title){
+					$html.find('.dialog-title').html(opts.title);
+				}else{
+					$html.find('.dialog-title').remove();
+				}
+				
+				$html.find('.dialog-content').html(opts.content);
+				
+				if(!opts.dismiss){
+					$html.find('.close').remove();
+				}
+				
+				if(opts.btn){
+					for(var i=0;i<opts.btn.length;i++){
+						var item = $('<input type="button" value="">').val(opts.btn[i]);
+						item.on('click',function(){
+							$html.hide();
+						})
+						
+						$html.find('.dialog-btn').append(item)
+						if(typeof opts.cb[i] =='function'){
+							item.on('click',opts.cb[i])   //向函数中传方法会形成闭包
+						}
+						if(typeof opts.cb[i]=='string'){
+							item.on('click',(function(x){//自执行函数  正确
+								return function(){
+									window.location.href=x	
+								}
+							})(opts.cb[i]))
+							//item.on('click',function(i){   //   XXXXXXXX   向函数中传方法会形成闭包，此情况没有传方法，(方法的作用域 取决于定义它的空间) 只传了语句，但是需要执行语句，就要用创造一个闭包,   
+							//	window.location.href=opts.cb[i];  //  需要通过闭包来记录当前的i
+							//})
+						}
+						
+					}
+					$html.find('input').on('click',function(){
+						$html.hide();
+					})
+						
+				}else{
+					$html.find('.dialog-btn').remove();
+				}
+				
+			}
+			$('#clickme').click(function(){
+				dialog({
+					title:'我是标题',
+					content:'<span style="color:red">222</span>12345',
+					dismiss:false,
+					btn:['ok','cancel'],
+					cb:['http://www.baidu.com','']
+				})
+			})
+			
+			var x=2;
+			function a(){
+				console.log(x)
+			}
+			function b(){
+				var x=3;
+				a()
+			}
+		</script>
+	</body>
+</html>
