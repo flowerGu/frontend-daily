@@ -97,7 +97,6 @@
 							$html.hide();
 						})
 						
-						$html.find('.dialog-btn').append(item)
 						if(typeof opts.cb[i] =='function'){
 							item.on('click',opts.cb[i])   //向函数中传方法会形成闭包
 						}
@@ -111,6 +110,7 @@
 							//	window.location.href=opts.cb[i];  //  需要通过闭包来记录当前的i
 							//})
 						}
+						$html.find('.dialog-btn').append(item)
 						
 					}
 					$html.find('input').on('click',function(){
