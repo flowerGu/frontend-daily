@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{margin:0;padding:0;}
+			li{
+				margin:10px auto;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" id="number"/>
+		<button id="save">确认</button>
+		<script src="js/jquery-1.9.0.min.js"></script>
+		<script>
+			var a = null;
+			$('#save').click(function(){
+				a = $('#number').val().split('');
+				var c = a.length;
+				var arrA =[],arrB = [];arrC = [];
+				if(c%2 == 0){
+					arrA = a.slice(0,c/2);//slice从start到end(不包括end)
+					arrB = a.slice(c/2);
+					arrC = arrB.reverse();
+				}else if(c>1 && c%2!=0){
+					arrA = a.slice(0,Math.floor(c/2));
+					arrB = a.slice(Math.ceil(c/2));
+				}
+					arrC = arrB.reverse();
+					arrA = arrA.join('');
+					arrC = arrC.join('');
+					console.log(arrA == arrC?'是对称数':'不是对称数');
+
+			})
+			
+		</script>
+	</body>
+</html>
