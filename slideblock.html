@@ -30,7 +30,8 @@
             height:40px;
             background-color:gray;
             margin:250px;
-            /*overflow:hidden;*/
+            cursor:pointer;
+            overflow:hidden;
         }
         .tags{
             position:absolute;
@@ -40,6 +41,7 @@
             background-color:#ff4c4c;
             top:0;
             left:0;
+            cursor:move;
         }
     </style>
 </head>
@@ -74,30 +76,27 @@
         }
         var oDiv = document.getElementsByClassName('tags')[0];
         oDiv.onmousedown = function(ev){
-            console.log(oDiv.style.left)
-            
             var ev = ev || event;
             var mouseDownX = ev.clientX;
             var mouseDownY = ev.clientY;           
             var L0 = this.offsetLeft;
             var R0 = this.offsetLeft + this.offsetWidth;
             var W = this.offsetWidth;
-            var H = this.offsetHeight;
             if(oDiv.setCapture){
                 oDiv.setCapture();
             }
-            var Lp0 = document.getElementsByClassName('par')[0].offsetLeft;
+            var p0 = document.getElementsByClassName('par')[0];
             document.onmousemove = function(ev){
-                if(oDiv.style.left.replace(/[a=z]/g,'')==280){
-                        return false;
-                }
+                var ev = ev || event;
                 var mouseMoveX = ev.clientX;
                 var mouseMoveY = ev.clientY;
-                oDiv.style.left = (ev.clientX-Lp0)+'px';
-                if((ev.clientX-Lp0)>280){
-                    oDiv.style.left = '280px'
+                oDiv.style.left = (ev.clientX-p0.offsetLeft)+'px';
+                if((ev.clientX-p0.offsetLeft)>=(p0.offsetWidth-W)){
+                    oDiv.style.left = (p0.offsetWidth-W)+'px'
+                    document.onmousemove=null;
+                    return false;
                 }
-                if(mouseMoveX<Lp0){
+                if(mouseMoveX<p0.offsetLeft){
                       oDiv.style.left = '0'
                 }
             }
@@ -105,14 +104,11 @@
                 document.onmousemove = null;
                 // 释放全局捕获
                 if(oDiv.releaseCapture){
-                oDiv.releaseCapture();
+                    oDiv.releaseCapture();
                 }
-                if(oDiv.style.left.replace(/[a-z]/g,'')>=280){
-                    oDiv.onmousedown=null;
-                    return false;
-                    
+                if(oDiv.style.left.replace(/[a-z]/g,'')<(p0.offsetWidth-W)){
+                    oDiv.style.left = 0;
                 }
-                console.log(123)
             }
             return false;
         }
