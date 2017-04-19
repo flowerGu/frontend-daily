@@ -20,8 +20,11 @@
  if(obj.name){//xxxxxx 当name为0时，此行为不会执行
    //do something
  }
- 'name' in obj   vvvvvv
- obj.hasownproperty('name') //true
+ 'name' in obj   vvvvvv             
+ //in 对原型属性和自有属性都返回true
+ //"hasownproperty" in obj  // true
+ //obj.hasownproperty('hasownproperty') //false
+ obj.hasownproperty('name') //true    
  obj.hasownproperty('toString') //false
  ```
 var obj = {}
@@ -35,6 +38,10 @@ arguments 对象并不是一个真正的Array。它类似于数组，但没有�
 	
 	Object.isExtensible(person) //true
 	Object.preventExtensions(person) //禁止修改对象
+	//instanceof 查找一个对象在另一个对象的原型链上是否存在prototype属性
+	//constructor 创建此对象的函数的引用
+	//window.onload 必须等到页面内容包括图片加载完才能执行
+	//-webkit-font-smoothing:antialiased;   mac字体清晰
 ```
 
 
