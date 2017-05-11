@@ -49,6 +49,13 @@ white-space:nowrap;
 	/*定义右下角拖动块的样式*/
 }
 
+//清除input[type=number]的上下小箭头
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+input[type="number"]{-moz-appearance:textfield;}
 
 
 Flex布局:
