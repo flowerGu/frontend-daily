@@ -66,7 +66,9 @@
 	var target = ele.target || ele.srcElement;
 	$(target).attr('id');//jq兼容性
 	$(document).on('click',">a",function(){})
-	
+//滚动条兼容性： window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+//可视区高度：window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+
 </script>
 </body>
 </html>
