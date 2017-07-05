@@ -1,6 +1,6 @@
 /* 
- ±íµ¥Ìá½» submit(function(){})Ö»ÊÇ°ó¶¨£¬ÒªÔÙµ¥¶Àsubmit()
-http://blog.csdn.net/yaoyuan_difang/article/details/38582697    //´ø½ø¶ÈÌõµÄÍ¼Æ¬ÉÏ´«
+ è¡¨å•æäº¤ submit(function(){})åªæ˜¯ç»‘å®šï¼Œè¦å†å•ç‹¬submit()
+http://blog.csdn.net/yaoyuan_difang/article/details/38582697    //å¸¦è¿›åº¦æ¡çš„å›¾ç‰‡ä¸Šä¼ 
 <form id="upImg" target='frameFile' enctype="multipart/form-data" encoding="multipart/form-data" method="post">
   <input type="file" id="headImg" name="headImage" />
   <input type="text" name="tokenid" id="tokenid"/>
@@ -25,14 +25,14 @@ http://blog.csdn.net/yaoyuan_difang/article/details/38582697    //´ø½ø¶ÈÌõµÄÍ¼Æ¬
 document.getElementById('headImg').addEventListener('change',function(event){
  var file=this.files[0];
   console.log(file)
-  if(file.size/1024/1024>=5){//   ¼àÌıÎÄ¼ş´óĞ¡    
-    console.log('´óÓÚ5M')
+  if(file.size/1024/1024>=5){//   ç›‘å¬æ–‡ä»¶å¤§å°    
+    console.log('å¤§äº5M')
   }
   if(file){
     var oReader=new FileReader();
     oReader.onload = function(e) {
       var base64 = oReader.result;
-      document.getElementById('img').setAttribute('src', base64);//Ô¤ÀÀÍ¼Æ¬µÄĞ§¹û     
+      document.getElementById('img').setAttribute('src', base64);//é¢„è§ˆå›¾ç‰‡çš„æ•ˆæœ     
     }
     oReader.readAsDataURL(file);
   }
@@ -46,5 +46,16 @@ document.getElementById('headImg').addEventListener('change',function(event){
       $('#version').val('3.2.2');
       $('#upImg').submit()
     }
+var formdata = new FormData();
+æ–¹æ¡ˆ1ï¼šformdata.append("name", "aaa"); 
+      formdata.append("img", base64);
+
+æ–¹æ¡ˆ2ï¼švar formobj =  document.getElementById("form");
+      var formdata = new FormData(formobj);
+
+æ–¹æ¡ˆ3ï¼švar formobj =  document.getElementById("form");
+      var formdata = formobj.getFormData()
+
+xhr.send(formData);
 
 
