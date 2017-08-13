@@ -1,40 +1,43 @@
-var m = {k:1}
-function _a(m){
- m = {v:2};
- console.log(m)//{v:2}
-}
-_a(m)
-console.log(m)//{k:1}
+```js
+    var m = {k:1}
+    function _a(m){
+      m = {v:2};
+      console.log(m)//{v:2}
+    }
+    _a(m)
+    console.log(m)//{k:1}
+```
+js ä¸­çš„åŸºæœ¬ç±»åž‹æŒ‰å€¼ä¼ é€’ï¼Œå¯¹è±¡ç±»åž‹æŒ‰å…±äº«ä¼ é€’
 
-js ÖÐµÄ»ù±¾ÀàÐÍ°´Öµ´«µÝ£¬¶ÔÏóÀàÐÍ°´¹²Ïí´«µÝ
-
-`´Ë´«µÝÎª¹²Ïí´«µÝ£º£¨°´¶ÔÏó´«µÝ£¬°´¶ÔÏó¹²Ïí´«µÝ£©µ÷ÓÃº¯Êý´«²ÎÊ±£¬º¯Êý½ÓÊÕ¶ÔÏóÊµ²ÎÒýÓÃµÄ¸±±¾£¬
-  ºÍ°´ÒýÓÃ´«µÝµÄ²»Í¬ÔÚÓÚ£º***ÔÚ¹²Ïí´«µÝÖÐ¶Ôº¯ÊýÐÎ²ÎµÄ¸³Öµ£¬²»»áÓ°ÏìÊµ²ÎµÄÖµ***
+`æ­¤ä¼ é€’ä¸ºå…±äº«ä¼ é€’ï¼šï¼ˆæŒ‰å¯¹è±¡ä¼ é€’ï¼ŒæŒ‰å¯¹è±¡å…±äº«ä¼ é€’ï¼‰è°ƒç”¨å‡½æ•°ä¼ å‚æ—¶ï¼Œå‡½æ•°æŽ¥æ”¶å¯¹è±¡å®žå‚å¼•ç”¨çš„å‰¯æœ¬ï¼Œ
+  å’ŒæŒ‰å¼•ç”¨ä¼ é€’çš„ä¸åŒåœ¨äºŽï¼š***åœ¨å…±äº«ä¼ é€’ä¸­å¯¹å‡½æ•°å½¢å‚çš„èµ‹å€¼ï¼Œä¸ä¼šå½±å“å®žå‚çš„å€¼***
  
 
- 
+```js
 var obj = {x : 1};
 function foo(o) {
     o.x = 3;
 }
 foo(obj);
-console.log(obj.x); // 3, ±»ÐÞ¸ÄÁË!
+console.log(obj.x); // 3, è¢«ä¿®æ”¹äº†!
 
 
 var obj = {x : 1};
 obj.x = 100;
 var o = obj;
 o.x = 1;
-obj.x; // 1, ±»ÐÞ¸Ä
+obj.x; // 1, è¢«ä¿®æ”¹
 o = true;
-obj.x; // 1, ²»»áÒòo = true¸Ä±ä    ¶ÔÏó²¢·Ç°´ÒýÓÃ´«µÝ£¬Í¨¹ýo = trueÐÞ¸ÄÁËoµÄÖµ£¬²»»áÓ°Ïìobj
+obj.x; // 1, ä¸ä¼šå› o = trueæ”¹å˜    å¯¹è±¡å¹¶éžæŒ‰å¼•ç”¨ä¼ é€’ï¼Œé€šè¿‡o = trueä¿®æ”¹äº†oçš„å€¼ï¼Œä¸ä¼šå½±å“obj
+```
 
 
-
-js ±äÁ¿ÌáÉý
+js å˜é‡æå‡
+```js
 var a =33;
 function test(){
- console.log(a);//ÔÚ´Ë×÷ÓÃÓòÖÐ£¬ÈôºóÃæ´úÂëÉùÃ÷ÁË±äÁ¿£¬Ôò»á°ÑÉùÃ÷ÌáÉýµ½×÷ÓÃÓò¶¥²¿£¬var a;   a²¢·ÇÊÇÈ«¾Ö±äÁ¿£¬¹Ê´ËÊä³öÎªundefined
+ console.log(a);//åœ¨æ­¤ä½œç”¨åŸŸä¸­ï¼Œè‹¥åŽé¢ä»£ç å£°æ˜Žäº†å˜é‡ï¼Œåˆ™ä¼šæŠŠå£°æ˜Žæå‡åˆ°ä½œç”¨åŸŸé¡¶éƒ¨ï¼Œvar a;   aå¹¶éžæ˜¯å…¨å±€å˜é‡ï¼Œæ•…æ­¤è¾“å‡ºä¸ºundefined
  var a=1;
+ ```
  
 }
