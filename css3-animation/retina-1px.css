@@ -1,0 +1,30 @@
+.hairlines{
+	width:80px;
+	height:80px;
+	position:relative;
+	border:none	
+}
+.hairlines:after{//单条border
+	position:absolute;
+	content:'';
+	left:0;
+	width:200%;
+	height:1px solid #ff4c4c;
+	transform:scale(0.5);
+	-webkit-transform:scale(0.5);
+	transform-origin:0 0;
+	-webkit-transform-origin:0 0;
+}
+.hairlines:after{
+	position:absolute;
+	left:0;
+	top:0;
+	box-sizing:border-box;
+	width:200%;
+	height:200%;
+	transform:scale(0.5);
+	-webkit-transform:scale(0.5);
+	transform-origin:left top;
+	-webkit-transform-origin:left top;
+	
+}
