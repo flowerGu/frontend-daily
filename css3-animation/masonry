@@ -1,0 +1,30 @@
+.masonry{
+			width:500px;
+			margin:10px auto;
+			column-count: 5;
+			column-gap:5px;
+			counter-reset: item-counter;
+		}
+		.items{
+			break-inside:avoid;
+			box-sizing:border-box;
+			padding:10px;
+			height:80px;
+			background:#ff4c4c;
+			margin-bottom:20px;
+		}
+		.items1{
+			height:100px;
+			background:#a0a0a0;
+		}
+		.items2{
+			height:200px;
+			background:#f6f6f6;
+		}
+		.items3{
+			height:30px;
+			background:#333;
+		}
+		.items4{
+			height:130px;
+		}
