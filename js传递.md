@@ -38,6 +38,21 @@ var a =33;
 function test(){
  console.log(a);//在此作用域中，若后面代码声明了变量，则会把声明提升到作用域顶部，var a;   a并非是全局变量，故此输出为undefined
  var a=1;
+ 
+* var d;
+> alert(d) //->undefined
+> d=1;
+ 
+* alert(d)//->undefined
+> var d=1;
+ 
+ * var d;
+ > alert(d);//->undefined
+ > d=function(){}//函数表达式
+ 
+ * alert(d);//function d(){}
+ > function d(){}//方法
+ //变量提升的情况下，方法与其他变量（此变量也包括函数表达式）不同，变量提升后输出undefined;方法提升后输出此方法
  ```
  
 }
