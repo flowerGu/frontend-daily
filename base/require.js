@@ -45,3 +45,4 @@ let require = (pathArr, callback) => {
 };
 
 export default require;
+//模块化：开放扩展，封闭修改（require.js：前置加载，sea.js按需加载）
