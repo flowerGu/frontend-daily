@@ -45,7 +45,8 @@
             move
         </div>
     </div>    
-    <script>        
+    <script>      
+	//滑块运动原理：滑块left=当前坐标-长块距窗口左边的距离
         var oDiv = document.getElementsByClassName('tags')[0],
             isSupportTouch = "ontouchend" in document ? true : false,       //检测浏览器是否支持touch事件
 	    startEvent = isSupportTouch ? "touchstart" : "mousedown",
@@ -66,9 +67,7 @@
                     console.log('stop',moveEvent,document)
                     return false;
                 }
-                if(mouseMoveX<p0L){
-                        oDiv.style.left = 0
-                }
+                
             },
             endDiv=function(){
                 document.removeEventListener(moveEvent,moveDiv);
@@ -82,16 +81,12 @@
                     document.removeEventListener(endEvent,endDiv)
                 }
             };
-        oDiv.addEventListener(startEvent,function(ev){
-            console.log(1)           
-            var ev = ev || event;
-            var L0 = this.getBoundingClientRect().left;            
-            var R0 = L0 + W;            
-             ev.preventDefault();
+        oDiv.addEventListener(startEvent,function(ev){                     
+            var ev = ev || event;                    
+            ev.preventDefault();
             if(oDiv.setCapture){
                 oDiv.setCapture();
-            }
-            var p0 = document.getElementsByClassName('par')[0];
+            }            
             document.addEventListener(moveEvent,moveDiv)
             document.addEventListener(endEvent, endDiv)
             return false;
