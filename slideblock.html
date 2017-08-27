@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>关于我们</title>
+	<title></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -11,13 +11,7 @@
 	<meta name="format-detection" content="telephone=no" />
 	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 	<meta http-equiv="Pragma" content="no-cache" />
-	<meta http-equiv="Expires" content="0" />
-	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-	<link href="css/base.css" type="text/css" rel="stylesheet" />
-	<link href="css/about_more.css" type="text/css" rel="stylesheet" />
-	<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
-	<script type="text/javascript" src="js/functions.js"></script>
-	<script type="text/javascript" src="js/config.js"></script>
+	<meta http-equiv="Expires" content="0" />	
     <style>
         body{
             
@@ -29,7 +23,7 @@
             width:300px;
             height:40px;
             background-color:gray;
-            margin:250px;
+            margin:2rem;
             cursor:pointer;
             overflow:hidden;
         }
@@ -45,73 +39,63 @@
         }
     </style>
 </head>
-<body style="background-color:#f6f6f6;">
-    <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
-        <li>9</li>
-        <li>10</li>
-    </ul>
+<body>    
     <div class="par">
         <div class="tags">
             move
         </div>
-    </div>
-    
-    <script>
-        var list = document.getElementsByTagName('li');
-        var length = list.length;
-        for(var i=0;i<length;i++){
-            list[i].onclick = (function(a){
-                return function(){
-                    console.log(a)
-                }
-            })(i)
-        }
-        var oDiv = document.getElementsByClassName('tags')[0];
-        oDiv.onmousedown = function(ev){
-            var ev = ev || event;
-            var mouseDownX = ev.clientX;
-            var mouseDownY = ev.clientY;           
-            var L0 = this.offsetLeft;
-            var R0 = this.offsetLeft + this.offsetWidth;
-            var W = this.offsetWidth;
-            if(oDiv.setCapture){
-                oDiv.setCapture();
-            }
-            var p0 = document.getElementsByClassName('par')[0];
-            document.onmousemove = function(ev){
-                var ev = ev || event;
-                var mouseMoveX = ev.clientX;
-                var mouseMoveY = ev.clientY;
-                oDiv.style.left = (ev.clientX-p0.offsetLeft)+'px';
-                if((ev.clientX-p0.offsetLeft)>=(p0.offsetWidth-W)){
-                    oDiv.style.left = (p0.offsetWidth-W)+'px'
-                    document.onmousemove=null;
+    </div>    
+    <script>        
+        var oDiv = document.getElementsByClassName('tags')[0],
+            isSupportTouch = "ontouchend" in document ? true : false,       //检测浏览器是否支持touch事件
+	    startEvent = isSupportTouch ? "touchstart" : "mousedown",
+	    moveEvent = isSupportTouch ? "touchmove" : "mousemove",
+	    endEvent = isSupportTouch ? "touchend" : "mouseup",
+            p0=document.getElementsByClassName('par')[0],
+            W = oDiv.getBoundingClientRect().width, //滑块宽度
+            p0W = p0.getBoundingClientRect().width,//长块宽度
+            p0L=p0.getBoundingClientRect().left,//长块距窗口左边的宽度
+            moveDiv=function(ev){
+                var ev = ev || event,
+                    mouseMoveX = isSupportTouch ? ev.targetTouches[0].pageX : ev.pageX;
+                oDiv.style.left = (mouseMoveX-p0L)+'px';
+                if((mouseMoveX-p0L)>=(p0W-W)){//当前滑动坐标-长块距左边>=长块宽度-滑块宽度
+                    oDiv.style.left = (p0W-W)+'px'                    
+                    document.removeEventListener(moveEvent,moveDiv);
+                    document.removeEventListener(endEvent,endDiv)
+                    console.log('stop',moveEvent,document)
                     return false;
                 }
-                if(mouseMoveX<p0.offsetLeft){
-                      oDiv.style.left = '0'
+                if(mouseMoveX<p0L){
+                        oDiv.style.left = 0
                 }
-            }
-            document.onmouseup = function(){
-                document.onmousemove = null;
+            },
+            endDiv=function(){
+                document.removeEventListener(moveEvent,moveDiv);
                 // 释放全局捕获
                 if(oDiv.releaseCapture){
                     oDiv.releaseCapture();
                 }
-                if(oDiv.style.left.replace(/[a-z]/g,'')<(p0.offsetWidth-W)){
+                console.log(oDiv.style.left.replace(/[a-z]/g,''),p0L,W)
+                if(oDiv.style.left.replace(/[a-z]/g,'')<(p0W-W)){
                     oDiv.style.left = 0;
+                    document.removeEventListener(endEvent,endDiv)
                 }
+            };
+        oDiv.addEventListener(startEvent,function(ev){
+            console.log(1)           
+            var ev = ev || event;
+            var L0 = this.getBoundingClientRect().left;            
+            var R0 = L0 + W;            
+             ev.preventDefault();
+            if(oDiv.setCapture){
+                oDiv.setCapture();
             }
+            var p0 = document.getElementsByClassName('par')[0];
+            document.addEventListener(moveEvent,moveDiv)
+            document.addEventListener(endEvent, endDiv)
             return false;
-        }
+        })
     </script>
     
 </body>
