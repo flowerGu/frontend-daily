@@ -14,4 +14,15 @@ console.log(missing)//undefined
 
 ```
 * const 常量声明,并非限制值不可变性，而是创建了不可变的绑定，即对于某个值的只读引用。禁止了对于该引用的重赋值。（Object.freeze())
+```js
+var cold=['autumn','winter']
+var warm =['spring','summer']
+var a =[...cold,...warm]//a:['autumn','winter','spring','summer']
+cold.push(...warm) // cold:['autumn','winter','spring','summer']
+
+
+var obj={a:1}
+var obj_new1=Object.assign({},obj,{a:3});
+var obj_new2={...obj,a:3}
+```
 
