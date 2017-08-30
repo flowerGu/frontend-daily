@@ -15,7 +15,9 @@ white-space:nowrap;
 	height: 10px;//横向滚动条
 	border-radius: 10px;
 }
-
+_color:red;//ie6
+*color:red;//ie7
+color:red\9;//ie9以下，不包括
 ::-webkit-scrollbar-button { /* 2 */
 	/*滚动条两端的按钮。可以用display:none让其不显示，也可以添加背景图片，颜色改变显示效果。*/
 	display: none;
