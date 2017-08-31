@@ -2,69 +2,29 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title></title>
-		<script src="js/jquery-1.9.0.min.js"></script> 
-		<style>
-			body{
-				width:100%;
-				height:100%;
-			}
-			.dialogWrap{width:100%;height:100%;}
-			.dialogWrap .bg{
-				width:100%;
-				height:100%;
-				position:fixed;
-				left:0;
-				top:0;
-				background-color:rgba(0, 0, 0, .4)
-			}
-			.dialogContainer{
-				width:400px;
-				position:fixed;
-				left:50%;
-				top:50%;
-				transform: translate(-50%,-50%);
-				background-color:#fff;
-				border-radius:10px;
-				font-size:16px;
-			}
-			.dialog-title{
-				padding:15px 4%;
-			}
-			.dialog-content{
-				width:100%;
-				color：#646464;
-				/*margin:20px;*/
-				text-align:center;
-			}
-			.dialog-btn{
-				text-align:center;
-				width:100%;
-				margin:10px auto;
-			}
-			.dialog-btn input{
-				color:#fff;
-				display:inline-block;
-				width:80px;
-				height:40px;
-				line-height:40px;
-				border-radius:5px;
-				outline:none;
-				border:none;
-				background-color:#fa4949;
-			}
-			.dialogContainer a{
-				position:absolute;
-				right:0;
-				top:0;
-				font-size:18px;
-				color:#000222;
-			}
-		</style>
 	</head>
 	<body>123
 	<button id='clickme'>点我</button>
+		<!--
+			(function(document){   
+			    var viewport;   
+			    var obj = {   
+				init:function(id){   
+				   viewport = document.querySelector("#"+id);   
+				},   
+				addChild:function(child){   
+				    viewport.appendChild(child);   
+				},   
+				removeChild:function(child){   
+				    viewport.removeChild(child);   
+				}   
+			    }   
+			    window.jView = obj;   
+			})(document);
+		-->
 		<script>
+			//闭包：当一个内部函数被外部函数变量访问时形成了闭包。变量的持久性
+			// 用途：当在模块内定一些变量时，想让这些变量一直保存在内存中，但不会污染全局变量
 			function dialog(opts){
 				var str = '<div class="dialogWrap">\
 								<div class="bg"></div>\
