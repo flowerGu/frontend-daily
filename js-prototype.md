@@ -1,4 +1,4 @@
-##### jsԭ��
+##### js原型
 ```html  
 <!DOCTYPE html>
 <html>
@@ -15,41 +15,45 @@
             
         </div>
                     <div id="wrap">
-ͨ�����캯�����ɵ�ʵ����ӵ�еķ�������ָ��һ���������������������Խ�ʡ�ڴ�
-                                    <input type="button" id="st" value="start"/>
+通过构造函数生成的实例所拥有的方法都是指向一个函数的索引，这样可以节省内存
+js面向对象：
+封装：将客观事物封装成抽象类
+继承：一个对象可以使用另一个对象的属性和方法
+多态：多态用途在于做面向对象开发时，需要有一个方法不变，但是它接收的参数类型是变化的，就可以使用多态。
+                                  <input type="button" id="st" value="start"/>
                     <input type="button" id="stop" value="stop"/>
                     <input type="button" id="end" value="end"/>
                     </div> 
         <script>
             var operate=function(ops){
-                this.dom=document.getElementById(ops.content);//��������
+                this.dom=document.getElementById(ops.content);//操作对象
                 this.init(ops.box);
             };
             operate.prototype={
-                init:function(box){//��ʼ��-->�����ť
-                    var that=this;//thisָ��oerate
+                init:function(box){//初始化-->点击按钮
+                    var that=this;//this指向oerate
                     $(box).children('input').on('click',function(){
                                                                     that[$(this).val()]();
                                                             })
                 },
-                start:function(){//��ʼ����
+                start:function(){//开始功能
                     this.dom.innerHTML='start';
                 },
-                stop:function(){//ֹͣ����
+                stop:function(){//停止功能
                     this.dom.innerHTML='stop';
                 },
-                end:function(){//��������
+                end:function(){//结束功能
                     this.dom.innerHTML='end';
                 }
             }
             var obj=new operate({
                 content:'car',
                 btn:'#wrap'
-            });//���÷�����ԭ��
+            });//调用方法的原型
             
         </script>
 
- ������һ�����������ʱ(�Ȳ������������ԣ����û���ٲ���ԭ��),JavaScript �����ϱ���ԭ������ֱ���ҵ��������Ƶ�����Ϊֹ�������ҵ���ԭ�����Ķ��� - Ҳ���� Object.prototype - ������Ȼû���ҵ�ָ�������ԣ��ͻ᷵�� undefined,,,,���Ը�ֵ�κ����͵Ķ���ԭ���ϣ����ǲ��ܸ�ֵԭ�����͵�ֵ
+ 当查找一个对象的属性时(先查找自身的属性，如果没有再查找原型),JavaScript 会向上遍历原型链，直到找到给定名称的属性为止，到查找到达原型链的顶部 - 也就是 Object.prototype - 但是仍然没有找到指定的属性，就会返回 undefined,,,,可以赋值任何类型的对象到原型上，但是不能赋值原子类型的值
 function foo() { 
   var x = 20; 
   function bar() {
@@ -60,7 +64,7 @@ function foo() {
 Object.prototype.x = 10; 
 foo(); //20
 
-/*����Ҳ��һ������*/
+/*函数也是一个对象*/
 function a(){
 
 }
@@ -78,9 +82,9 @@ var foo = {
     bar: 'Here be dragons'
 };
 
-foo.hasOwnProperty('bar'); // ���Ƿ��� false
+foo.hasOwnProperty('bar'); // 总是返回 false
 
-// ʹ��{}����� hasOwnProperty������������Ϊ����Ϊfoo
+// 使用{}对象的 hasOwnProperty，并将其上下为设置为foo
 {}.hasOwnProperty.call(foo, 'bar'); // true
     </body>
 </html>
