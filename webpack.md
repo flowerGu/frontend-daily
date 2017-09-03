@@ -14,13 +14,15 @@ module.exports={
     // filename:'./dist/js/bundle.js'
   },
   plugins:[
-    new htmlWebpackPlugin({//js 打包时，动态跟据js hash文件的后缀引入
+    new htmlWebpackPlugin({//js 打包时，动态跟据js hash文件的后缀引入到html中
       template:'src/html/index.html',
       filename:'index-[hash].html',
       inject:'head',
-      title:'i\'m ok',//html:<title><%= htmlWebpackPlugin.options.title %></title>
-      
-    })
+      title:'i\'m ok',//html:<title><%= htmlWebpackPlugin.options.title %></title>，
+      minify:{//压缩html
+        removeComments:true,//移除注释
+        collapseWhitespace:true,//移除标签之间的多余空格
+    })
   ]
 }
 ```
