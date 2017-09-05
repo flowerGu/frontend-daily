@@ -5,7 +5,7 @@
 
 > Object.assign将多个源对象复制到目标对象，当源对象的值发生变化时，目标对象的值不会变
 > var m=Object.assgin(target,{name:'lili'},[123])
-
+//https://juejin.im/entry/59ad2cacf265da248a7aa6cc?utm_source=gold_browser_extension
   
  ## Array: 
  > some 数组中有一个元素满足则返回true
