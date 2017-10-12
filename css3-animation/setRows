@@ -1,0 +1,12 @@
+ height:70rpx; 
+  -webkit-line-clamp: 2;
+  -moz-line-clamp: 2;
+  -ms-line-clamp: 2;
+  -o-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  word-break: break-all;
+  line-height: 35rpx;
+  text-overflow:ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient:vertical
