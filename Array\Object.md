@@ -12,7 +12,14 @@
  > every 全部满足才可以
  > filter查找数组中满足条件的元素
  > Array.from(new Set([1,1,5,2,3]) //数组去重 Array.from()方法Array从类数组或可迭代的对象创建一个新的实例
-  
+ > 
+ ```js
+ var arr = new Set();//Set中的元素只会出现一次
+ arr.add(1);
+ arr.add(2);
+ arr.add(1);
+ arr =[...arr];//arr=[1,2]
+ ```
 > getComputedStyle(a,null)获取a元素的style样式
 > getComputedStyle(a,null).getPropertyValue('display')  获取a元素的display属性值
 > a.getBoundingClientRect() 获取a元素的offsetTop,offsetLeft,width,height
