@@ -26,7 +26,7 @@ function getDateStr(AddDayCount) {
  }
 
 ```
-
+```js
 //字符串转换为时间戳
 function getDateTimeStamp(dateStr) {
   return Date.parse(dateStr.replace(/-/gi, "/"));
@@ -89,3 +89,4 @@ function getDateDiff(dateStr) {
     return Y + '-' + M + '-' + D + ' ' + H + ':' + m;
   }
 }
+```
