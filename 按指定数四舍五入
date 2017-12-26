@@ -1,2 +1,3 @@
 ## 60-->100; 50-->50(按50四舍五入)
 Math.ceil(num/50)*50
+toLocaleString()
