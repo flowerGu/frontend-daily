@@ -44,6 +44,16 @@ var test ={
 	  console.dir(result)
 ```
 
+###数组的深复制（简捷方法）
+```js
+var a1=[{name:'lili'},{name:'susan'}];
+var a2 = a1.concat();
+a2.push({name:'davin'})
+//a1:[{name:'lili'},{name:'susan'}]
+//a2:[{name:'lili'},{name:'susan'},{name:'davin'}]
+
+```
+
 ## 数组扁平化
 
 ```js
