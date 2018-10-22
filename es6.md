@@ -26,3 +26,8 @@ var obj_new1=Object.assign({},obj,{a:3});
 var obj_new2={...obj,a:3}
 ```
 
+* find:返回第一个为true的元素（findIndex返回第一个为true的数组下标)
+* filter:查询所有满足条件的元素
+* includes:[NaN].includes(NaN) //true [NaN].indexOf(NaN)>-1 // false
+* [,'a',undefined,null].join('#') // "#a##"   [,'a',undefined,null].toString() //',a,,'
+* ['a','b',,c].filter(x=>true} // ['a','b','c']
