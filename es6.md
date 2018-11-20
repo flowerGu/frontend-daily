@@ -31,3 +31,24 @@ var obj_new2={...obj,a:3}
 * includes:[NaN].includes(NaN) //true [NaN].indexOf(NaN)>-1 // false
 * [,'a',undefined,null].join('#') // "#a##"   [,'a',undefined,null].toString() //',a,,'
 * ['a','b',,c].filter(x=>true} // ['a','b','c']
+
+* proxy
+```js
+var person = {
+	name: " 张三 "
+};
+var proxy = new Proxy(person, {get方法用于拦截某个属性的读取操作
+	get: function(target, property) {
+            if(property in target) {
+                return target[property];
+            } else {
+                throw new ReferenceError("Property \"" + property + "\" does not exist.");
+
+            }
+        }
+	}
+)
+//proxy.name /////张三
+//proxy.age ///// Property age does not exist
+
+```
