@@ -1,4 +1,4 @@
-```bash
+
 ## Object:
 > Object.keys
 > 将对象中的key添加到新数组中
@@ -25,5 +25,21 @@
 > getComputedStyle(a,null)获取a元素的style样式
 > getComputedStyle(a,null).getPropertyValue('display')  获取a元素的display属性值
 > a.getBoundingClientRect() 获取a元素的offsetTop,offsetLeft,width,height
+
+## 多维数组转一维数组
+
+```js
+var re = [],arr = [1,[5,6,[7,[8,9,[[11,12],10]],]]]
+re = arr.join(',').split(',')//方法一
+function deepFor(arr){
+	for(var i=0;i<arr.length;i++){
+		if(Object.prototype.toString.call(arr[i]).slice(8,-1) == 'Array'){
+			deepFor(arr[i])
+        }else{
+			re.push(arr[i])
+		}
+	}
+deepFor(arr) //方法二
+
 
 ```
