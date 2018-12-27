@@ -52,3 +52,13 @@ var proxy = new Proxy(person, {get方法用于拦截某个属性的读取操作
 //proxy.age ///// Property age does not exist
 
 ```
+* Map  使用场景一（数组去重）
+
+```js 
+var arr [1,3,1,5,11,6],maps = new Map();
+arr.forEach(v=>
+	!maps.has(v) && maps.set(v)
+);
+Array.from(maps.keys())
+
+```
