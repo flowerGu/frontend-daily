@@ -30,5 +30,6 @@ if(type == 'shipin'){
       }else if(type == 'donghua'){
             player.append('<object id="cj-player" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,16,0"	width="100%" height="'+560+'" ><param name="movie" value="' + url + '"><param name="quality" value="high"><param name="play" value="true"><param name="LOOP" value="false"><embed src="'+url+'" width="100%" height="'+560+'" play="true" loop="false" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed></object>');
       }else if(type == 'word' || type == 'ppt'){
-            player.html('<iframe width="970" height="560" border="0" src="http://www.xdocin.com/xdoc?_func=to&_format=html&_cache=true&_source=true&_xdoc='+url+'"></iframe>')
+	      //https://view.officeapps.live.com/op/view.aspx?src=
+            //player.html('<iframe width="970" height="560" border="0" src="http://www.xdocin.com/xdoc?_func=to&_format=html&_cache=true&_source=true&_xdoc='+url+'"></iframe>')
       }
