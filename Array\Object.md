@@ -11,15 +11,19 @@
  > some 数组中有一个元素满足则返回true
  > every 全部满足才可以
  > filter查找数组中满足条件的元素
- > Array.from(new Set([1,1,5,2,3]) //数组去重 Array.from()方法Array从类数组或可迭代的对象创建一个新的实例
+ > Array.from(new Set([1,1,5,2,3]) //数组去重 Array.from()方法Array从类数组或可迭代的对象创建一个新的实例 
   
  ```js
- 
+ //去重一
  var arr = new Set();//Set中的元素只会出现一次
  arr.add(1);
  arr.add(2);
  arr.add(1);
  arr =[...arr];//arr=[1,2]
+ 
+ //去重二
+ var maps = new Map();
+ arr.filter(x=>!maps.has(x) && maps.set(x))
  
  ```
 > getComputedStyle(a,null)获取a元素的style样式
