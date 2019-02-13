@@ -62,3 +62,13 @@ arr.forEach(v=>
 Array.from(maps.keys())
 
 ```
+
+* 函数参数默认值 
+
+```js
+function request(type='get'){
+	return type
+}
+console.log(request()) //'get'
+console.log(request('post')//'post'
+```
