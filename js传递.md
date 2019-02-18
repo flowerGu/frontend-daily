@@ -55,4 +55,11 @@ function test(){
  //变量提升的情况下，方法与其他变量（此变量也包括函数表达式）不同，变量提升后输出undefined;方法提升后输出此方法
  ```
  
-}
+### function a(){}与 var a = function(){}的区别
+```js
+    //用函数声明创建的函数(function a(){})可以在function a定义之前就进行调用；而用函数表达式(var a = function(){})创建的函数不能在funnction被赋值之前进行调用
+    function a(){alert(1)}
+    var a = function(){alert(2)}
+    a() // 2
+    
+```
