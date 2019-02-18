@@ -72,3 +72,4 @@ function request(type='get'){
 console.log(request()) //'get'
 console.log(request('post')//'post'
 ```
+* 实际上await是一个让出线程的标志。await后面的函数会先执行一遍，然后就会跳出整个async函数来执行后面的代码。等本轮事件循环执行完了之后又会跳回到async函数中执行后面的代码
