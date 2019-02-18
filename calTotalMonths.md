@@ -1,7 +1,7 @@
 ## 计算相差多少个月
 ### (大年-小年-1)*12+12-小年月份+大年月份
 
-##获取AddDayCount天后的日期
+### 未来n天
 ```js
 function getDateStr(AddDayCount) { 
             var dd = new Date(); 
