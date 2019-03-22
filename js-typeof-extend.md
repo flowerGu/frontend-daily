@@ -2,7 +2,7 @@
 ```
 	navigator.userAgent.toLowerCase().indexOf('mobile');
 	var a=[]; 
-1> Object.prototype.toString.call(a)==>[Object Array]; 
+1> Object.prototype.toString.call(a)==>[object Array]; 
 	kind_a==kind_a.split(' ')[1]; 
 	length=kind_a.length-1; 
 	var kind=kind_a.substr(0,length);—->Array 
