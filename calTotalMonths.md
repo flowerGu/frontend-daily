@@ -20,7 +20,7 @@ function getDateStr(AddDayCount) {
 ```js 
  var val = new Date($(this).val());     //所选时间
  var curDate = new Date().getTime();//当前时间
- var choose = val.getTime()+new Date().getTimezoneOffset()*60*1000(当前时间偏移的毫秒数);
+ var choose = val.getTime()+new Date().getTimezoneOffset()*60*1000//(当前时间偏移的毫秒数);
  if(choose<curDate){
    alert('所选时间不能小于当前时间');
  }
