@@ -37,6 +37,7 @@ js 变量提升
 var a =33;
 function test(){
  console.log(a);//在此作用域中，若后面代码声明了变量，则会把声明提升到作用域顶部，var a;   a并非是全局变量，故此输出为undefined
+ 
  var a=1;
  
 * var d;
@@ -61,5 +62,5 @@ function test(){
     function a(){alert(1)}
     var a = function(){alert(2)}
     a() // 2
-    
+    //函数表达式优先级大于函数声明创建的函数
 ```
