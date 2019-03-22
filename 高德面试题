@@ -1,0 +1,75 @@
+```js
+const res = {
+        code: 0,
+        data: {
+              lines: '20路,301路,5路,地铁5号线,机场大巴线,107路,机场快轨',
+              lineids: 'lzbd,lwes,lxid,lwic,lwdf,ldfx,loin',
+              linedetails: {
+                    lwdf: {
+                          name: '机场大巴线'
+                    },
+                    lwes: {
+                          name: '301路'
+                    },
+                    lwic: {
+                          name: '地铁5号线'
+                    },
+                    lwic: {
+                          name: '地铁5号线'
+                    },
+                    ldfx: {
+                          name: '107路'
+                    },
+                    lzbd: {
+                          name: '20路'
+                    },
+                    lxid: {
+                          name: '5路'
+                    },
+                    loin: {
+                          name: '机场快轨'
+                    }
+              }
+        }
+  }
+//用拼接，分散，排序方式实现
+      function parse1(res){
+           var linedetails = res.data.linedetails,lines = [],c = [],d = [],o = [],
+                  cStr = 'C',dStr='D',oStr='O',separator='||',trainFlag = '地铁',reg=/^\d+/;
+            for(var i in linedetails){
+                  let lineName = linedetails[i].name,str = `${separator+lineName}${separator+i}`,
+                        isFirstNum = lineName.match(reg,'');//常规
+                  if(Array.isArray(isFirstNum)){
+                        lines.push(`${cStr+str}`);
+                  }else if(lineName.includes(trainFlag)){
+                        lines.push(`${dStr+str}`);
+                  }else{
+                        lines.push(`${oStr+str}`);
+                  }
+            }
+            let len = lines.length;
+            if(len>0){
+                  lines.sort();
+                  lines.forEach(v => {
+                        let s = v.split(separator),rest = `${s[1]}${separator}${s[2]}`;
+                        if(s[0] == cStr){
+                              c.push(rest);
+                        }else if(s[0] == dStr){
+                              d.push(rest);
+                        }else{
+                              o.push(rest);
+                        }
+                  })
+            }
+            c = c.sort((x,y)=>{return parseInt(x.split(separator)[0])>parseInt(y.split(separator)[0])});
+            d = d.sort((x,y)=>{return x.split(separator)[0]>y.split(separator)[0]})
+            o = o.sort((x,y)=>{return x.split(separator)[0].length>y.split(separator)[0].length});
+            let arrs = c.concat(d,o),result = [];
+            arrs.forEach((v,i)=>{
+                  let temp = v.split(separator);
+                  result[i] = {};
+                  result[i][temp[1]] = {name:temp[0]};
+            })
+            return result;
+     }
+```
