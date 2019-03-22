@@ -14,12 +14,12 @@
   )
 ```
 ### 生命周期
-constructor()
-componentWillMount()
-componentWillReceiveProps()
-componentDidMount()
-render()
-componentWillUpMount()
+> constructor()
+> componentWillMount()
+> componentWillReceiveProps()
+> componentDidMount()
+> render()
+> componentWillUpMount()
 
 state 用于改变组件内容状态的值
 props 用于组件通信进行全传值
