@@ -12,5 +12,5 @@ function foo2(){
     	bar: "hello"
     };
 }
-
+(function f(n){return ((n > 1) ? n * f(n-1) : n)})(x)//计算x的阶乘
 ```
