@@ -27,10 +27,11 @@ var obj_new2={...obj,a:3}
 ```
 
 * find:返回第一个为true的元素（findIndex返回第一个为true的数组下标)
-* filter:查询所有满足条件的元素
+* filter:查询所有满足条件的元素,当数组中元素是值类型，forEach绝对不会改变数组；当是引用类型，则可以改变数组
 * includes:[NaN].includes(NaN) //true [NaN].indexOf(NaN)>-1 // false
 * [,'a',undefined,null].join('#') // "#a##"   [,'a',undefined,null].toString() //',a,,'
 * ['a','b',,c].filter(x=>true} // ['a','b','c']
+* every和some的一个坑点在于，对一个空数组用every返回的是true，而some会返回false
 
 * proxy
 ```js
