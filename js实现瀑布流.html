@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin: 0px;padding: 0px;list-style: none;}
+        #box{width: 1000px;margin: 0 auto;}
+        #box ul{float: left;width: 200px;margin-right: 50px;}
+        #box img{width: 200px;}
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+    </div>
+    <script>
+        var box=document.getElementById('box');
+        var ul=box.children;
+        function insert(){
+            var x=0;
+            var newli=document.createElement('li');
+            newli.innerHTML='<p style="background:#'+Math.random().toString(16).substr(2,6)+';margin-bottom:10px;height:'+Math.random()*350+'px"></p>';//这是图片的文件名，要求是统一。
+            var minH=Math.min(ul[0].clientHeight,ul[1].clientHeight,ul[2].clientHeight,ul[3].clientHeight);
+            for (var i = 0; i < ul.length; i++) {
+                if (ul[i].clientHeight==minH) {
+                    x=i;
+                    break;
+                }
+            }
+            ul[x].appendChild(newli);
+      }
+      for (var i = 0; i < 30; i++) {
+          insert();
+      }
+      document.onscroll=function(){
+          var viewH=document.body.clientHeight||document.documentElement.clientHeight;
+          var winH=document.documentElement.scrollHeight;
+          var scrollT=document.body.scrollTop||document.documentElement.scrollTop;
+          if (winH-scrollT-viewH<500) {
+              for (var i = 0; i < 30; i++) {
+              insert();
+          }
+       }
+      }
+    </script>
+</body>
+</html>
