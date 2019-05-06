@@ -12,6 +12,8 @@
  > every 全部满足才可以
  > filter查找数组中满足条件的元素
  > Array.from(new Set([1,1,5,2,3]) //数组去重 Array.from()方法Array从类数组或可迭代的对象创建一个新的实例 
+ > [].concat(...[1,[2,3,4,5],6]  //可将二维数组扁平化
+ > [1,null,false,undefined].filter(Boolean) //过滤数组中的假值
   
  ```js
  //去重一
