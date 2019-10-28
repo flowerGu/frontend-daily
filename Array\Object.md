@@ -36,6 +36,10 @@ Array.from(arr,({name}) => name) == arr.map(({name}) => name)
 > getComputedStyle(a,null).getPropertyValue('display')  获取a元素的display属性值
 > a.getBoundingClientRect() 获取a元素的offsetTop,offsetLeft,width,height
 
+//求两个数组的交集
+var one = [0,2,4,6,8,2,8],two = [2,4,6,6,5,8];
+var dupli = [...new Set(one)].filter(x => two.includes(x))
+
 ## 多维数组转一维数组
 
 ```js
