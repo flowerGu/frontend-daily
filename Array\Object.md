@@ -26,6 +26,10 @@
  //去重二
  var maps = new Map();
  arr.filter(x=>!maps.has(x) && maps.set(x))
+
+//Array.from 也可以写出.map的效果
+var arr = [{name:'123',age:33},{name:'sa',age:23},{name:'aa',age:133}]
+Array.from(arr,({name}) => name) == arr.map(({name}) => name)
  
  ```
 > getComputedStyle(a,null)获取a元素的style样式
