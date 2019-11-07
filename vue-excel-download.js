@@ -1,4 +1,4 @@
-```js 
+// vue mixins 适用一些组件中的公共方法，若此中的方法与组件中的方法冲突，则优先于组件
   let xhr = new XMLHttpRequest()
                 let fileName = 'file.xls' // 文件名称 
                 xhr.open('GET', ApiUrl, true)
@@ -37,4 +37,4 @@
                     }
                 }
                 xhr.send()
-```
+
