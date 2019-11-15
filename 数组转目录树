@@ -1,0 +1,384 @@
+```js
+
+function arrToTree(data) {
+    let result = []
+    if(!Array.isArray(data)) {
+        return result
+    }
+    data.forEach(item => {
+        delete item.children;
+    });
+    let map = {};
+    data.forEach(item => {
+        map[item.id] = item;
+    });
+    data.forEach(item => {
+        let parent = map[item.parentId];
+        if(parent) {
+          console.log(parent.id,'parent')
+          parent.children = parent.children || [];
+          parent.children.push(item);
+        } else {
+            result.push(item);
+        }
+    });
+    return result;
+}
+var tJson = [
+    {
+        "id": "03778f8ea01a429aa536acf74ae900e7",
+        "powerName": "接口管理",
+        "powerCode": "interfaceManager",
+        "powerLevel": 2,
+        "parentId": "e3cfd6116ce54e4bad7d904f602a877b",
+        "parentName": "后台管理",
+        "platformFlag": "easyEpc",
+        "ctime": "2018-07-26T06:50:19.000+0000",
+        "utime": "2018-07-26T06:50:19.000+0000",
+        "type": "1",
+        "checked": false
+    },
+    {
+        "id": "0efd4fc3dc4140a1ad904df37b682fae",
+        "powerName": "车型查配件",
+        "powerCode": "parts",
+        "powerLevel": 2,
+        "parentId": "e624fadf02944114a17d0c7e14686e10",
+        "parentName": "查询",
+        "platformFlag": "easyEpc",
+        "ctime": "2018-07-26T07:05:45.000+0000",
+        "utime": "2018-07-26T07:05:45.000+0000",
+        "type": "1",
+        "checked": false
+    },
+    {
+        "id": "0f9cf488a441407c8648420273314236",
+        "powerName": "查保养",
+        "powerCode": "maintain",
+        "powerLevel": 2,
+        "parentId": "e624fadf02944114a17d0c7e14686e10",
+        "parentName": "查询",
+        "platformFlag": "easyEpc",
+        "ctime": "2018-07-26T07:21:52.000+0000",
+        "utime": "2018-07-26T07:21:52.000+0000",
+        "type": "1",
+        "checked": false
+    },
+    {
+        "id": "25899deed34d472db763108742ae358c",
+        "powerName": "OE号查配件",
+        "powerCode": "oe",
+        "powerLevel": 2,
+        "parentId": "e624fadf02944114a17d0c7e14686e10",
+        "parentName": "查询",
+        "platformFlag": "easyEpc",
+        "ctime": "2018-07-26T07:21:22.000+0000",
+        "utime": "2018-07-26T07:21:22.000+0000",
+        "type": "1",
+        "checked": false
+    },
+    {
+        "id": "277ffa35072748e49ad394d2a4764951",
+        "powerName": "用户管理",
+        "powerCode": "userManager",
+        "powerLevel": 2,
+        "parentId": "e3cfd6116ce54e4bad7d904f602a877b",
+        "parentName": "后台管理",
+        "platformFlag": "easyEpc",
+        "ctime": "2018-07-26T06:49:17.000+0000",
+        "utime": "2018-07-26T06:49:17.000+0000",
+        "type": "1",
+        "checked": false
+    },
+    {
+        "id": "400ffc930e544b1288b71c9076dc55af",
+        "powerName": "个人中心",
+        "powerCode": "user_center",
+        "powerLevel": 1,
+        "parentId": "",
+        "platformFlag": "easyEpc",
+        "ctime": "2018-09-12T01:47:48.000+0000",
+        "utime": "2018-09-12T01:47:48.000+0000",
+        "type": "1",
+        "checked": false,
+        "powerOrder": 10
+    },
+    {
+        "id": "40cf47d73e0c4e02b05fe81add41368c",
+        "powerName": "对账管理",
+        "powerCode": "/manager/bill",
+        "powerLevel": 2,
+        "parentId": "7700520094ec4c4e89350b6d7f55b1b2",
+        "parentName": "业务管理",
+        "platformFlag": "easyEpc",
+        "ctime": "2018-07-26T06:48:21.000+0000",
+        "utime": "2018-07-26T06:48:21.000+0000",
+        "type": "1",
+        "checked": false
+    },
+    {
+        "id": "452fe65b441c4a5583d2ceb758bbed8e",
+        "powerName": "权限管理",
+        "powerCode": "/manager/power",
+        "powerLevel": 2,
+        "parentId": "277ffa35072748e49ad394d2a4764951",
+        "parentName": "用户管理",
+        "platformFlag": "easyEpc",
+        "ctime": "2018-07-26T06:50:01.000+0000",
+        "utime": "2018-07-26T06:50:01.000+0000",
+        "type": "1",
+        "checked": false
+    },
+    {
+        "id": "4c3bf03fd571460bb9bbca24759ed0c4",
+        "powerName": "API接口文档",
+        "powerCode": "/manager/api",
+        "powerLevel": 2,
+        "parentId": "03778f8ea01a429aa536acf74ae900e7",
+        "parentName": "接口管理",
+        "platformFlag": "easyEpc",
+        "ctime": "2018-07-26T06:50:52.000+0000",
+        "utime": "2018-07-26T06:50:52.000+0000",
+        "type": "1",
+        "checked": false
+    },
+    {
+        "id": "53d5a21137f94a63b09d58795086a448",
+        "powerName": "商机管理",
+        "powerCode": "/manager/opportunity",
+        "powerLevel": 2,
+        "parentId": "7700520094ec4c4e89350b6d7f55b1b2",
+        "parentName": "业务管理",
+        "platformFlag": "easyEpc",
+        "ctime": "2018-07-26T06:44:13.000+0000",
+        "utime": "2018-07-26T06:44:13.000+0000",
+        "type": "1",
+        "checked": false
+    },
+    {
+        "id": "5884cf145c8d44f89e9743d4aa2a2009",
+        "powerName": "销售员管理",
+        "powerCode": "/manager/sale",
+        "powerLevel": 2,
+        "parentId": "7700520094ec4c4e89350b6d7f55b1b2",
+        "parentName": "业务管理",
+        "platformFlag": "easyEpc",
+        "ctime": "2018-07-26T06:48:40.000+0000",
+        "utime": "2018-07-26T06:48:40.000+0000",
+        "type": "1",
+        "checked": false
+    },
+    {
+        "id": "6017f48c8b0c489ebabbb0c87dc00919",
+        "powerName": "用户业务",
+        "powerCode": "/manager/service",
+        "powerLevel": 2,
+        "parentId": "7700520094ec4c4e89350b6d7f55b1b2",
+        "parentName": "业务管理",
+        "platformFlag": "easyEpc",
+        "ctime": "2018-07-26T06:44:34.000+0000",
+        "utime": "2018-07-26T06:44:34.000+0000",
+        "type": "1",
+        "checked": false
+    },
+    {
+        "id": "64f8b95c4803421f83b710b158cb2226",
+        "powerName": "首页",
+        "powerCode": "index",
+        "powerLevel": 1,
+        "parentId": "",
+        "platformFlag": "easyEpc",
+        "ctime": "2018-07-26T06:28:01.000+0000",
+        "utime": "2018-08-30T05:57:02.000+0000",
+        "type": "1",
+        "checked": false,
+        "powerOrder": 1
+    },
+    {
+        "id": "70d3e534c6414140886841882a65766b",
+        "powerName": "代理商管理",
+        "powerCode": "/manager/agent",
+        "powerLevel": 2,
+        "parentId": "7700520094ec4c4e89350b6d7f55b1b2",
+        "parentName": "业务管理",
+        "platformFlag": "easyEpc",
+        "ctime": "2018-07-26T06:48:55.000+0000",
+        "utime": "2018-07-26T06:48:55.000+0000",
+        "type": "1",
+        "checked": false
+    },
+    {
+        "id": "76e3812aa47c44028a3e4d93ed8c0c59",
+        "powerName": "商务合作",
+        "powerCode": "cooperation",
+        "powerLevel": 1,
+        "parentId": "",
+        "parentName": "",
+        "platformFlag": "easyEpc",
+        "ctime": "2018-07-26T06:29:22.000+0000",
+        "utime": "2018-07-26T06:36:42.000+0000",
+        "type": "1",
+        "checked": false,
+        "powerOrder": 4
+    },
+    {
+        "id": "7700520094ec4c4e89350b6d7f55b1b2",
+        "powerName": "业务管理",
+        "powerCode": "businessManager",
+        "powerLevel": 2,
+        "parentId": "e3cfd6116ce54e4bad7d904f602a877b",
+        "parentName": "后台管理",
+        "platformFlag": "easyEpc",
+        "ctime": "2018-07-26T06:30:19.000+0000",
+        "utime": "2018-07-26T06:30:19.000+0000",
+        "type": "1",
+        "checked": false
+    },
+    {
+        "id": "78d411432e344785aa5bea16e2b052a9",
+        "powerName": "查车型",
+        "powerCode": "vehicle",
+        "powerLevel": 2,
+        "parentId": "e624fadf02944114a17d0c7e14686e10",
+        "parentName": "查询",
+        "platformFlag": "easyEpc",
+        "ctime": "2018-07-26T07:03:49.000+0000",
+        "utime": "2018-07-26T07:03:49.000+0000",
+        "type": "1",
+        "checked": false
+    },
+    {
+        "id": "7a18e4d7f4bc41799cba95e47bcd672d",
+        "powerName": "字典配置",
+        "powerCode": "/manager/dictionary",
+        "powerLevel": 2,
+        "parentId": "03778f8ea01a429aa536acf74ae900e7",
+        "parentName": "接口管理",
+        "platformFlag": "easyEpc",
+        "ctime": "2018-07-26T06:50:35.000+0000",
+        "utime": "2018-07-26T06:50:35.000+0000",
+        "type": "1",
+        "checked": false
+    },
+    {
+        "id": "8909536686c544f4ad2b0c2a88141cee",
+        "powerName": "查工时",
+        "powerCode": "hours",
+        "powerLevel": 2,
+        "parentId": "e624fadf02944114a17d0c7e14686e10",
+        "parentName": "查询",
+        "platformFlag": "easyEpc",
+        "ctime": "2018-07-26T07:22:09.000+0000",
+        "utime": "2018-07-26T07:22:09.000+0000",
+        "type": "1",
+        "checked": false
+    },
+    {
+        "id": "8ee80eac3d8e405c8d03e6c267b5d8a6",
+        "powerName": "账号管理",
+        "powerCode": "/manager/account",
+        "powerLevel": 2,
+        "parentId": "277ffa35072748e49ad394d2a4764951",
+        "parentName": "用户管理",
+        "platformFlag": "easyEpc",
+        "ctime": "2018-07-26T06:49:31.000+0000",
+        "utime": "2018-07-26T06:49:31.000+0000",
+        "type": "1",
+        "checked": false
+    },
+    {
+        "id": "9066d0e185c64b5e8eb4624d006116fc",
+        "powerName": "公告消息",
+        "powerCode": "/manager/notice",
+        "powerLevel": 2,
+        "parentId": "7700520094ec4c4e89350b6d7f55b1b2",
+        "parentName": "业务管理",
+        "platformFlag": "easyEpc",
+        "ctime": "2018-07-26T06:46:08.000+0000",
+        "utime": "2018-07-26T06:46:08.000+0000",
+        "type": "1",
+        "checked": false
+    },
+    {
+        "id": "cf5f804a3e614fc9bea3fa8d48ee6964",
+        "powerName": "套餐管理",
+        "powerCode": "/manager/package",
+        "powerLevel": 2,
+        "parentId": "7700520094ec4c4e89350b6d7f55b1b2",
+        "parentName": "业务管理",
+        "platformFlag": "easyEpc",
+        "ctime": "2018-07-26T06:46:38.000+0000",
+        "utime": "2018-07-26T06:46:38.000+0000",
+        "type": "1",
+        "checked": false
+    },
+    {
+        "id": "e0c7d6d87b8147268bc669e561767393",
+        "powerName": "角色管理",
+        "powerCode": "/manager/role",
+        "powerLevel": 2,
+        "parentId": "277ffa35072748e49ad394d2a4764951",
+        "parentName": "用户管理",
+        "platformFlag": "easyEpc",
+        "ctime": "2018-07-26T06:49:46.000+0000",
+        "utime": "2018-07-26T06:49:46.000+0000",
+        "type": "1",
+        "checked": false
+    },
+    {
+        "id": "e3cfd6116ce54e4bad7d904f602a877b",
+        "powerName": "后台管理",
+        "powerCode": "manager",
+        "powerLevel": 1,
+        "parentId": "",
+        "parentName": "",
+        "platformFlag": "easyEpc",
+        "ctime": "2018-07-26T06:29:46.000+0000",
+        "utime": "2018-07-26T06:36:52.000+0000",
+        "type": "1",
+        "checked": false,
+        "powerOrder": 5
+    },
+    {
+        "id": "e624fadf02944114a17d0c7e14686e10",
+        "powerName": "查询",
+        "powerCode": "inquire",
+        "powerLevel": 1,
+        "parentId": "",
+        "parentName": "",
+        "platformFlag": "easyEpc",
+        "ctime": "2018-07-26T06:28:15.000+0000",
+        "utime": "2018-08-30T05:57:08.000+0000",
+        "type": "1",
+        "checked": false,
+        "powerOrder": 2
+    },
+    {
+        "id": "e7f12fed9d23449387cede53d452572e",
+        "powerName": "标准接口维护",
+        "powerCode": "/manager/interface",
+        "powerLevel": 2,
+        "parentId": "03778f8ea01a429aa536acf74ae900e7",
+        "parentName": "接口管理",
+        "platformFlag": "easyEpc",
+        "ctime": "2018-07-26T06:51:08.000+0000",
+        "utime": "2018-07-26T06:51:08.000+0000",
+        "type": "1",
+        "checked": false
+    },
+    {
+        "id": "ea3f4a97600646da94c6bbd921ea9332",
+        "powerName": "接口服务",
+        "powerCode": "service",
+        "powerLevel": 1,
+        "parentId": "",
+        "parentName": "",
+        "platformFlag": "easyEpc",
+        "ctime": "2018-07-26T06:28:35.000+0000",
+        "utime": "2018-07-26T06:36:30.000+0000",
+        "type": "1",
+        "checked": false,
+        "powerOrder": 3
+    }
+]
+```
