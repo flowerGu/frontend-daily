@@ -63,5 +63,20 @@ function showMonthLastDay(){
     return MonthLastDay;
 }
 
+//设置几天后的日期
+/**
+* @param  {string} date 起始日期
+* @param  {number} day 向后的天数
+* @return {string} 返回想要得到的日期
+*/
+function convertDate (date, day) {
+    let tempDate = new Date(date);
+    tempDate.setDate(tempDate.getDate()+day);
+    let Y = tempDate.getFullYear();
+    let M = tempDate.getMonth()+1 < 10 ? '0'+(tempDate.getMonth()+1) : tempDate.getMonth()+1;
+    let D = tempDate.getDate() < 10 ? '0'+(tempDate.getDate()) : tempDate.getDate();
+    let result = Y + "-" + M + "-" + D
+    return result;
+}
 
 ```
