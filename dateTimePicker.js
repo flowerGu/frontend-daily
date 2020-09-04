@@ -1,3 +1,6 @@
+var targetday_milliseconds=today.getTime() + 1000*60*60*24*day;
+      today.setTime(targetday_milliseconds); //注意，这行是关键代码
+
 function withData(param){
   return param < 10 ? '0' + param : '' + param;
 }
